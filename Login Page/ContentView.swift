@@ -9,6 +9,7 @@ import SwiftUI
 
 let lightGreyColor = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
 
+
 struct ExtractedView: View {
     var text = ""
     var body: some View {
@@ -21,76 +22,29 @@ struct ExtractedView: View {
 
 struct ContentView: View {
     
-    @State var username: String = ""
-    @State var password: String = ""
-    @State var isLoggedIn: Bool = false
-    @State var status: Bool = false
-    @State var mess: String = ""
-    @State private var animationAmount = 0.0
     @State var bolVal: Bool = false
-
+    @State var isLoggedIn: Bool = false
+    
     
     var body: some View {
         // LoginView()
         
-        NavigationStack {
-            NavigationLink(destination: LoginView(),
-                           isActive: $isLoggedIn) {
+        NavigationView {
+            VStack{
+//                NavigationLink(destination: ) {
+//                    Text("Show Login Form")
+//                }
+                SecondView(isLoggedIn: $isLoggedIn, bolVal: $bolVal)
+                NavigationLink(destination: LoginView(),
+                               isActive: $isLoggedIn) {
+                }
+                NavigationLink(destination: LoginView(),
+                               isActive: $bolVal) {
+                }
             }
-            NavigationLink(destination: LoginView(),
-                           isActive: $bolVal) {
-            }
-            VStack {
-                ExtractedView(text: "Welcome!")
-                //LoginView(isLoggedIn:$isLoggedIn)
-                TextField("Username", text: $username)
-                    .padding()
-                    .background(lightGreyColor)
-                
-                    .cornerRadius(5.0)
-                    .padding(.bottom, 20)
-                SecureField("Password", text: $password)
-                    .padding()
-                    .background(lightGreyColor)
-                    .cornerRadius(5.0)
-                    .padding(.bottom, 20)
-                //action: {print("Button tapped")}
-                
-                
-                Button() {
-                    getuserDetails(email: username, password: password)
-                }label:{
-                    Text("LOGIN")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(width: 220, height: 60)
-                        .background(Color.green)
-                        .cornerRadius(15.0)
-                }.alert(isPresented: $status){
-                    Alert(
-                        title: Text("User Details"),
-                        message: Text("\(mess)"),
-                        primaryButton: .destructive(Text("Cancel")),
-                        secondaryButton: .cancel(Text("Sign Up")){
-                            bolVal = true
-                        }
-                    )
-                }.rotation3DEffect(.degrees(animationAmount), axis: (x: 10, y: 10, z: 30))
-            }
-            .padding()
+            //SecondView()
+            
         }
-    }
-    
-    func getuserDetails(email: String, password: String){
-        
-        if status {
-            isLoggedIn = true
-        }
-        
-        print(status)
-        status = true
-        
     }
     
 }
@@ -125,30 +79,29 @@ struct LoginView: View {
             //LoginView(isLoggedIn:$isLoggedIn)
             TextField("Enter First Name", text: $firstName)
                 .padding()
-                .background(lightGreyColor)
-            
+                .background(.cyan)
                 .cornerRadius(5.0)
                 .padding(.bottom, 20)
             TextField("Enter Second Name", text: $secondName)
                 .padding()
-                .background(lightGreyColor)
-            
+                .background(.cyan)
+
                 .cornerRadius(5.0)
                 .padding(.bottom, 20)
             TextField("Email", text: $email)
                 .padding()
-                .background(lightGreyColor)
-            
+                .background(.cyan)
+
                 .cornerRadius(5.0)
                 .padding(.bottom, 20)
             SecureField("Password", text: $password)
                 .padding()
-                .background(lightGreyColor)
+                .background(.cyan)
                 .cornerRadius(5.0)
                 .padding(.bottom, 20)
             SecureField("Conform Password", text: $conformpassword)
                 .padding()
-                .background(lightGreyColor)
+                .background(.cyan)
                 .cornerRadius(5.0)
                 .padding(.bottom, 20)
             
@@ -202,3 +155,69 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 
+
+struct SecondView: View {
+    
+    
+    @State var username: String = ""
+    @State var password: String = ""
+    @State var status: Bool = false
+    @State var mess: String = ""
+    @State private var animationAmount = 0.0
+    @Binding var isLoggedIn: Bool
+    @Binding var bolVal: Bool
+
+    
+    var body: some View {
+        VStack {
+            ExtractedView(text: "Welcome!")
+            //LoginView(isLoggedIn:$isLoggedIn)
+            TextField("Username", text: $username)
+                .padding()
+                .background(.cyan)
+
+                .cornerRadius(5.0)
+                .padding(.bottom, 20)
+            SecureField("Password", text: $password)
+                .padding()
+                .background(.cyan)
+                .cornerRadius(5.0)
+                .padding(.bottom, 20)
+            //action: {print("Button tapped")}
+            
+            
+            Button() {
+                getuserDetails(email: username, password: password)
+            }label:{
+                Text("LOGIN")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(width: 220, height: 60)
+                    .background(Color.green)
+                    .cornerRadius(15.0)
+            }.alert(isPresented: $status){
+                Alert(
+                    title: Text("User Details"),
+                    message: Text("\(mess)"),
+                    primaryButton: .destructive(Text("Cancel")),
+                    secondaryButton: .cancel(Text("Sign Up")){
+                        bolVal = true
+                    }
+                )
+            }.rotation3DEffect(.degrees(animationAmount), axis: (x: 10, y: 10, z: 30))
+        }
+        .padding()
+    }
+    
+    func getuserDetails(email: String, password: String){
+        
+        if status {
+            isLoggedIn = true
+        }
+        
+        print(status)
+        status = true
+        
+    }
+}

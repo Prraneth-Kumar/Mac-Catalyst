@@ -11,10 +11,10 @@
 		4D1ABA2428EC19B100DD9F97 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1ABA2328EC19B100DD9F97 /* ContentView.swift */; };
 		4D1ABA2628EC19B200DD9F97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D1ABA2528EC19B200DD9F97 /* Assets.xcassets */; };
 		4D1ABA2928EC19B200DD9F97 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D1ABA2828EC19B200DD9F97 /* Preview Assets.xcassets */; };
+		4D34102F28EEA2790036255D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1ABA2328EC19B100DD9F97 /* ContentView.swift */; };
 		4D9E6FAE28EDCEB400380279 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D9E6FAD28EDCEB400380279 /* Assets.xcassets */; };
 		4D9E6FB128EDCEB400380279 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D9E6FB028EDCEB400380279 /* Preview Assets.xcassets */; };
 		4D9E6FBA28EDD25000380279 /* macLoginApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9E6FA928EDCEB200380279 /* macLoginApp.swift */; };
-		4D9E6FBE28EDE8BF00380279 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9E6FBD28EDE8BF00380279 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +28,6 @@
 		4D9E6FAD28EDCEB400380279 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D9E6FB028EDCEB400380279 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4D9E6FB228EDCEB400380279 /* macLogin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macLogin.entitlements; sourceTree = "<group>"; };
-		4D9E6FBD28EDE8BF00380279 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +89,6 @@
 			isa = PBXGroup;
 			children = (
 				4D9E6FA928EDCEB200380279 /* macLoginApp.swift */,
-				4D9E6FBD28EDE8BF00380279 /* ContentView.swift */,
 				4D9E6FAD28EDCEB400380279 /* Assets.xcassets */,
 				4D9E6FB228EDCEB400380279 /* macLogin.entitlements */,
 				4D9E6FAF28EDCEB400380279 /* Preview Content */,
@@ -215,8 +213,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D34102F28EEA2790036255D /* ContentView.swift in Sources */,
 				4D9E6FBA28EDD25000380279 /* macLoginApp.swift in Sources */,
-				4D9E6FBE28EDE8BF00380279 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
